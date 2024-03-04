@@ -48,7 +48,7 @@ body {
     margin-bottom: 10px;
 }
 
-.container h2, .container p {
+.container h2, .container h3, .container p {
     text-align: left;
 }
 
