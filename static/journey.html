@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Greetings Fellow Poor Crabs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+    </head>
+
+    <body>
+        <div class="title">
+            <h1>Journey</h1>
+        </div>
+        <div class="menu">
+            <a class="menu" href="/">Home</a>
+            <a class="menu" href="/resume.html">Resume</a>
+            <a class="menu" href="/journey.html">Journey</a>
+            <a class="menu" href="/projects.html">Projects</a>
+        </div>
+        <div class="content">
+            <div id="entry"></div>
+            <div class="button_container">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        var entries = [
+            "entries/beginning.html",
+            "entries/setupblog.html"
+            ];
+        var index = entries.length - 1;
+        var entryElement = document.getElementById('entry');
+        var prevBtn = document.getElementById('prevBtn');
+        var nextBtn = document.getElementById('nextBtn');
+
+        function display_entry(index) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === XMLHttpRequest.DONE) {
+                    if(xhr.status === 200) {
+                        entryElement.innerHTML = xhr.responseText;
+                    } else {
+                        entryElement.textContent = "Error loading entry :(";
+                    }
+                }
+            };
+            xhr.open('GET', entries[index], true);
+            xhr.send();
+        }
+
+        display_entry(index);
+        
+        prevBtn.addEventListener('click', function() {
+            if(index > 0) {
+                index--;
+                display_entry(index);
+            }
+        });
+
+        nextBtn.addEventListener('click', function() {
+            if(index < entries.length - 1) {
+                index++;
+                display_entry(index);
+            }
+        });
+
+    </script>
+</html>

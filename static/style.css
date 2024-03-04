@@ -1,0 +1,123 @@
+body {
+    background-color: #222;
+    color: #eee;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.title {
+    padding: 20px;
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.menu {
+    color: #ccc;
+    padding: 5px 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    background-color: #333;
+    text-align: center;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.content {
+    color: #ccc;
+    padding: 5px 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    background-color: #444;
+}
+
+.content h1, .content h2, .content h3, .content p {
+    text-align:center;
+}
+
+.container {
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.container h2, .container p {
+    text-align: left;
+}
+
+.entry {
+    margin: 20px;
+    padding: 20px;
+}
+.button_container {
+    text-align: center;
+    margin: 0 10px;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+@media print {
+    body {
+        background-color: #fff;
+    }
+
+    .title, .menu {
+        display: none;
+    }
+
+    .content {
+        padding: 0px;
+    }
+
+    .container {
+        padding: 0px;
+        margin-bottom: 25px;
+    }
+    .container p, .container ul, .container ol {
+        padding: 0px 0 !important;
+    }
+
+    h2 {
+        font-size: 19px; 
+        margin-bottom: 0px;
+    }
+    
+    h3 {
+        font-size: 15px; 
+        margin-bottom: 0px;
+    }
+
+    p {
+        font-size: 11px; 
+        margin-bottom: 0px;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 12px; 
+    }
+}
+
