@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 use actix_files::{NamedFile, Files};
-use actix_web::{get, middleware::Logger, Error, App, HttpServer};
+use actix_web::{get, middleware::{self, Logger}, App, Error, HttpServer};
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 use env_logger::Env;
 
@@ -23,8 +23,9 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(index)
-            .service(Files::new("/entries", "entries").show_files_listing())
-            .service(Files::new("/", "static").show_files_listing())
+            .service(Files::new("/entries", "entries"))
+            .service(Files::new("/", "static"))
+            .wrap(middleware::DefaultHeaders::new().add(("X-Version", "0.2")))
             .wrap(Logger::default())
             .wrap(Logger::new("%a %{User-Agent}i"))
     }).bind_openssl("0.0.0.0:443", builder)?
