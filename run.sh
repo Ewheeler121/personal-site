@@ -8,13 +8,17 @@ date_changed() {
 restart_program() {
     kill -SIGTERM $program_pid
     wait $program_pid
-    program_pid=$(nohup ./website > "$log_file" 2>&1 & echo $!)
+
+    log_file="logs/$current_date.log"
+    sudo nohup ./website > "$log_file" 2>&1 &
+    program_pid=$!
 }
 
+mkdir -p logs
 current_date=$(date +"%Y-%m-%d")
-log_file="$current_date.log"
+log_file="logs/$current_date.log"
 
-nohup ./website > "$log_file" 2>&1 &
+sudo nohup ./website > "$log_file" 2>&1 &
 program_pid=$!
 
 while true; do
