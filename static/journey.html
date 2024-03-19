@@ -27,11 +27,12 @@
     </body>
 
     <script>
-        var entries = [
-            "entries/beginning.html",
-            "entries/setupblog.html",
-            "entries/funnytraffic.html"
-            ];
+        var numEntries = 3;
+        var entries = [];
+        for(var i = 0; i < numEntries; i++) {
+            entries.push("entries/" + i + ".html");
+        }
+
         var index = entries.length - 1;
         var entryElement = document.getElementById('entry');
         var prevBtn = document.getElementById('prevBtn');
