@@ -9,6 +9,7 @@ restart_program() {
     kill -SIGTERM $program_pid
     wait $program_pid
 
+    current_date=$(date +"%d-%m-%Y")
     log_file="logs/$current_date.log"
     sudo nohup ./website >> "$log_file" 2>&1 &
     program_pid=$!
