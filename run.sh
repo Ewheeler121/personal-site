@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 date_changed() {
-    new_date=$(date +"%Y-%m-%d")
+    new_date=$(date +"%d-%m-%Y")
     [[ "$current_date" != "$new_date" ]]
 }
 
@@ -10,15 +10,15 @@ restart_program() {
     wait $program_pid
 
     log_file="logs/$current_date.log"
-    sudo nohup ./website > "$log_file" 2>&1 &
+    sudo nohup ./website >> "$log_file" 2>&1 &
     program_pid=$!
 }
 
 mkdir -p logs
-current_date=$(date +"%Y-%m-%d")
+current_date=$(date +"%d-%m-%Y")
 log_file="logs/$current_date.log"
 
-sudo nohup ./website > "$log_file" 2>&1 &
+sudo nohup ./website >> "$log_file" 2>&1 &
 program_pid=$!
 
 while true; do
