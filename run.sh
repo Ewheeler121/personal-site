@@ -8,6 +8,7 @@ date_changed() {
 restart_program() {
     kill -SIGTERM $program_pid
     wait $program_pid
+    sleep 10
 
     current_date=$(date +"%d-%m-%Y")
     log_file="logs/$current_date.log"
