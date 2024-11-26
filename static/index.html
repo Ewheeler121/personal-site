@@ -10,15 +10,40 @@
 		<meta name="robots" content="index">
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preload" href="images/bg1c.png" as="image">
+        <link rel="preload" href="images/bg2c.png" as="image">
+        <link rel="preload" href="images/bg3c.png" as="image">
 
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="scroll-div.css">
+        <link rel="stylesheet" href="background_c.css">
+
+        <style>
+            input[type="text"], input[type="url"], textarea {
+                font-family: 'VT323';
+            }
+
+            #comment-section {
+                color: white;
+                background-color: black;
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column-reverse;
+                max-height: 200px;
+            }
+            #comment-section p {
+                margin: 5px;
+            }
+        </style>
+
         <script src="https://unpkg.com/htmx.org@2.0.3"></script>
     </head>
-    <div id="bg1c" class="background"></div>
-    <div id="bg2c" class="background"></div>
-    <div id="bg3c" class="background"></div>
+    <div id="bg1" class="background"></div>
+    <div id="bg2" class="background"></div>
+    <div id="bg3" class="background"></div>
     <body>
-        <div id="content" class="c">
+        <div id="content">
             <h1 style="text-align: center">Welcome Internet Crawlers!!!</h1>
             <table style="width: 100%">
                 <tbody>
@@ -29,7 +54,7 @@
                                 <ul>
                                     <li><a href="construction.html">About</a></li>
                                     <li><a href="construction.html">Setup</a></li>
-                                    <li><a href="construction.html">Hire Me?</a></li>
+                                    <li><a href="resume.html">Hire Me?</a></li>
                                     <li><a href="construction.html">Blog</a></li>
                                     <li><a href="construction.html">Projects</a></li>
                                     <li><a href="construction.html">Credits</a></li>
@@ -73,20 +98,14 @@
                     </tr>
                 </tbody>
             </table>
-            <img src="1080p.gif" alt="1080p" width="88" height="31">
-            <img src="css.gif" alt="css" width="88" height="31">
-            <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_"><img src="gpl3.gif" alt="gpl3" width="88" height="31"></a>
-            <a href="https://neomutt.org/" target="_"><img src="mutt.gif" alt="mutt" width="88" height="31"></a>
-            <img src="2001.gif" alt="2001" width="88" height="31">
-            <a href="https://discord.com/" target="_"><img src="discord2.gif" alt="discord2" width="88" height="31"></a>
-            <img src="hatemac_b.gif" alt="hatemac_b" width="88" height="31">
-            <a href="https://neovim.io/" target="_"><img src="neovim.gif" alt="neovim" width="88" height="31"></a>
-            <a href="https://www.torproject.org/" target="_"><img src="tor.gif" alt="tor" width="88" height="31"></a>
             <table style="width: 100%">
                 <tbody>
                     <tr>
                         <td style="width: 33%">
                             <h4 style="text-align: center">Status</h4>
+                            <div id="status" hx-get="/status" hx-trigger="load" hx-target="#status" hx-swap="innerHTML" style="text-align: center">
+                                <p>getting status...</p>
+                            </div>
                         </td>
                         <td style="width: 33%">
                             <h4>IDK What to put here :/</h4>
@@ -99,15 +118,45 @@
                     </tr>
                 </tbody>
             </table>
-             <img src="anythingbut.gif" alt="anythingbut" width="88" height="31">
-             <img src="dynamiclogo.gif" alt="dynamiclogo" width="88" height="31">
-             <img src="hatems.gif" alt="hatems" width="88" height="31">
-             <a href="https://www.kernel.org/" target="_"><img src="penguins.gif" alt="penguins" width="88" height="31"></a>
-             <a href="https://artixlinux.org/" target="_"><img src="Artix.gif" alt="Artix" width="88" height="31"></a>
-             <img src="phonechump.gif" alt="phonechump" width="88" height="31">
-             <a href="https://wiby.me/" target="_"><img src="wiby.gif" alt="wiby" width="88" height="31"></a>
-             <img src="fftake.gif" alt="fftake" width="88" height="31">
-             <img src="jesus_now.gif" alt="jesus_now" width="88" height="31">
+            <table style="width: 100%">
+                <tbody>
+                    <tr>
+                        <td style="border: 0">
+                            <div class="scroll-container">
+                                <div class="scroll-content">
+                                    <img src="images/1080p.gif" loading="lazy" alt="1080p" width="88" height="31">
+                                    <img src="images/css.gif" loading="lazy" alt="css" width="88" height="31">
+                                    <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_"><img src="images/gpl3.gif" loading="lazy" alt="gpl3" width="88" height="31"></a>
+                                    <a href="https://neomutt.org/" target="_"><img src="images/mutt.gif" loading="lazy" alt="mutt" width="88" height="31"></a>
+                                    <img src="images/2001.gif" loading="lazy" alt="2001" width="88" height="31">
+                                    <a href="https://discord.com/" target="_"><img src="images/discord2.gif" loading="lazy" alt="discord2" width="88" height="31"></a>
+                                    <img src="images/hatemac_b.gif" loading="lazy" alt="hatemac_b" width="88" height="31">
+                                    <a href="https://neovim.io/" target="_"><img src="images/neovim.gif" loading="lazy" alt="neovim" width="88" height="31"></a>
+                                    <a href="https://www.torproject.org/" target="_"><img src="images/tor.gif" loading="lazy" alt="tor" width="88" height="31"></a>
+                                    <img src="images/anythingbut.gif" loading="lazy" alt="anythingbut" width="88" height="31">
+                                    <img src="images/dynamiclogo.gif" loading="lazy" alt="dynamiclogo" width="88" height="31">
+                                    <img src="images/hatems.gif" loading="lazy" alt="hatems" width="88" height="31">
+                                    <a href="https://www.kernel.org/" target="_"><img src="images/penguins.gif" loading="lazy" alt="penguins" width="88" height="31"></a>
+                                    <a href="https://artixlinux.org/" target="_"><img src="images/Artix.gif" loading="lazy" alt="Artix" width="88" height="31"></a>
+                                    <img src="images/phonechump.gif" loading="lazy" alt="phonechump" width="88" height="31">
+                                    <a href="https://wiby.me/" target="_"><img src="images/wiby.gif" loading="lazy" alt="wiby" width="88" height="31"></a>
+                                    <img src="images/fftake.gif" loading="lazy" alt="fftake" width="88" height="31">
+                                    <img src="images/jesus_now.gif" loading="lazy" alt="jesus_now" width="88" height="31">
+                                    <img src="images/rss-button.gif" loading="lazy" alt="rss-button" width="88" height="31">
+                                    <img src="images/win10no.gif" loading="lazy" alt="win10no" width="88" height="31">
+                                    <a href="https://github.com/Ewheeler121" target="_"><img src="images/github-check.gif" loading="lazy" alt="github-check" width="88" height="31"></a>
+                                    <img src="images/keep.gif" loading="lazy" alt="keep" width="88" height="31">
+                                    <img src="images/www.gif" loading="lazy" alt="www" width="88" height="31">
+                                    <img src="images/csbanner.gif" loading="lazy" alt="csbanner" width="88" height="31">
+                                    <img src="images/gnu-linux.gif" loading="lazy" alt="gnu-linux" width="88" height="31">
+                                    <a href="https://landchad.net/" target="_"><img src="images/landchad.gif" loading="lazy" alt="landchad" width="88" height="31"></a>
+                                    <a href="https://steamcommunity.com/id/Ewheeler121" target="_"><img src="images/steam.gif" alt="steam" width="88" height="31"></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <table style="width: 100%">
                 <tbody>
                     <tr>
@@ -122,23 +171,22 @@
                     </tr>
                 </tbody>
             </table>
-            <img src="rss-button.gif" alt="rss-button" width="88" height="31">
-            <img src="win10no.gif" alt="win10no" width="88" height="31">
-            <a href="https://github.com/Ewheeler121" target="_"><img src="github-check.gif" alt="github-check" width="88" height="31"></a>
-            <img src="keep.gif" alt="keep" width="88" height="31">
-            <img src="www.gif" alt="www" width="88" height="31">
-            <img src="csbanner.gif" alt="csbanner" width="88" height="31">
-            <img src="gnu-linux.gif" alt="gnu-linux" width="88" height="31">
-            <a href="https://landchad.net/" target="_"><img src="landchad.gif" alt="landchad" width="88" height="31"></a>
-            <a href="https://steamcommunity.com/id/Ewheeler121" target="_"><img src="steam.gif" alt="steam" width="88" height="31"></a>
             <table style="width: 100%">
                 <tbody>
                     <tr>
                         <td style="width: 100%">
                             <h3>Comments</h3>
-                            <div id="comment-section" hx-get="/comments" hx-trigger="load" hx-target="#comment-section" hx-swap="innerHTML" style="text-align: center">
-                                <p>Loading comments...</p>
-                            </div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:0px;">
+                                            <div id="comment-section" hx-get="/comments" hx-trigger="load" hx-target="#comment-section" hx-swap="innerHTML" style="text-align: center">
+                                                <p>Loading comments...</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <div id="comment-form">
                                 <form hx-post="/submit-comment" hx-target="#comment-section" hx-swap="outerHTML">
                                     <label for="username">Username:</label>

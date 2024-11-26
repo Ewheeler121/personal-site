@@ -1,0 +1,139 @@
+.fam T
+.nr PS 10p
+.nr VS 15p
+.ds CH
+.nr FM 0.1i
+
+.defcolor headingcolor rgb 0.5f 0.5f 0.5f
+.defcolor linecolor rgb 0.6f 0.6f 0.6f
+
+.de heading 
+.   nf 
+.   ps 14 
+.   B "\\$1" 
+\m[headingcolor]\
+\l'\\n(.lu\(ul'
+\m[default] 
+.   ps 10 
+.   sp -1
+.   fi
+..
+
+.ce 2
+.ps 18
+.B "Evan Wheeler"
+.ps 10
+.TS 
+tab(;) nospaces; 
+l rx. 
+Plymouth, MI;T{
+Email:
+.I "ewheeler121@outlook.com"
+T} 
++1 (734)-892-4438;T{
+Website:
+.I "https://ewheeler121.xyz"
+T}
+;T{
+GitHub:
+.I https://github.com/ewheeler121
+T}
+;T{
+LinkedIn:
+.I https://linkedin.com/in/ewheeler121
+T}
+.TE
+
+.heading "Summary"
+.LP
+Motivated Computer Science student with internship experience focusing on 
+database management with Python. Certified as a AWS Cloud Practitioner and 
+knowledgable in Linux systems. Strong fundamentals in Scripting and Systems 
+programming languages and eager to improve my technical skill in a fast-paced, 
+ever evolving industry.
+
+.heading "Education"
+.TS
+tab(;) nospaces;
+rW15|lx.
+\m[default] EST Graduation May 2025\m[linecolor];T{
+.B "Lawrence Tech University"
+\(en
+Southfield, MI
+.br
+Bachelor of Computer Science, Concentration Software Engineering
+T}
+.TE
+\m[default]
+.sp -1.2
+
+.heading "Experience" 
+.TS 
+tab(;) nospaces; 
+rW15|lx. 
+\m[default]Summer 2024\m[linecolor];T{ 
+.B "Testek Internship"
+\(en Wixom, MI 
+.br
+Work with managing
+.B SQLite
+databases across
+.B SVN
+branches and merging isolated test machines. Created several
+.B Python
+programs such as a tool to merge databases and normalize table data using
+.B SQLAlchemy
+to modify SQL tables and
+.B PyQT
+as a GUI library for easier use for users.
+T}
+.TE 
+\m[default]
+
+.heading "Certications"
+.LP
+.ps 11
+.B "AWS Cloud Practitioner"
+.ps 10
+Verification Number: 
+.I 9S3XCB92WMEEQG58
+
+.heading "Projects"
+.ps 11
+.B "Personal Site"
+.ps 10
+\(en
+.I " https://ewheeler121.xyz"
+.br
+Created a Personal Website. Hosted on a VPS running 
+.B Debian ,
+a distribution of 
+.B Linux . 
+The Back-End is written in
+.B C
+using the libraries
+.B OpenSSL
+and
+.B Sqlite3 .
+The Front-End is written with 
+.B HTML ,
+.B CSS ,
+and
+.B HTMX .
+.sp 1
+
+.heading "Skills" 
+.TS 
+tab(;) nospaces; 
+rW15|lx. 
+\m[default]Languages\m[linecolor];T{ 
+.br
+C/C++, Java, Python, HTML, CSS, SQL, Javascript
+.sp .5
+T}
+\m[default]Tooling\m[linecolor];T{ 
+.br
+Git, Linux, Amazon AWS, Vim, VSCode, Visual Studio, Make, Gradle, Pip
+T} 
+.TE 
+\m[default]

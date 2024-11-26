@@ -17,113 +17,14 @@
     }
 }
 
-@keyframes moveBackground {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100vw 0;
-    }
-}
-
-@keyframes scrollText {
-    0% {
-        background-position: 100vw 0;
-    }
-    100% {
-        background-position: 0 0;
-    }
-}
-
-.background {
-    background-size: cover;
-    background-repeat: repeat-x;
-    background-position: 0 0;
-    z-index:-1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
 .blink {
     animation: blink 1s step-start infinite;
-}
-
-#bg1c {
-    background-image: url('bg1c.png');
-    animation: moveBackground 60s linear infinite;
-}
-
-#bg2c {
-    background-image: url('bg2c.png');
-    animation: moveBackground 40s linear infinite;
-}
-
-#bg3c {
-    background-image: url('bg3c.png');
-    animation: moveBackground 30s linear infinite;
-}
-
-.c {
-    border-radius: 3px;
-    border: 2px solid #e9b392;
-    background: #ac4328;
-    color: #e9b392;
-}
-
-.c td {
-    border: 2px solid #e9b392;
-    border-radius: 3px;
-}
-
-.c a {
-    color: #e9b392;
-}
-
-#bg1f {
-    background-image: url('bg1f.png');
-    animation: moveBackground 60s linear infinite;
-}
-
-#bg2f {
-    background-image: url('bg2f.png');
-    animation: moveBackground 40s linear infinite;
-}
-
-#bg3f {
-    background-image: url('bg3f.png');
-    animation: moveBackground 30s linear infinite;
-}
-
-.f {
-    border-radius: 3px;
-    border: 2px solid #cb75b6;
-    background: #74448c;
-    color: #cb75b6;
-}
-
-.f td {
-    border: 2px solid #cb75b6;
-    border-radius: 3px;
-}
-
-.f a {
-    color: #cb75b6;
 }
 
 #content {
     max-width: 9in;
     margin: 0 auto;
     padding: 5px;
-}
-
-.comments {
-    padding: 0 10px;
-    max-height: 200px;
-    height: 150px;
-    border: 2px solid #e9b392;
 }
 
 html {
@@ -139,7 +40,6 @@ h1, h2, h3, h4 {
     margin-top: 0;
 }
 
-
 td {
     padding: 10px;
     vertical-align: top;
@@ -149,9 +49,3 @@ nav ul {
     padding: 0;
     list-style-type: none;
 }
-
-input[type="text"], input[type="url"], textarea {
-    font-family: 'VT323';
-}
-
-

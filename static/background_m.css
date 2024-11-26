@@ -1,0 +1,51 @@
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100vw 0;
+    }
+}
+
+.background {
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    z-index:-1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#bg1 {
+    background-image: url('images/bg1m.png');
+    animation: moveBackground 60s linear infinite;
+}
+
+#bg2 {
+    background-image: url('images/bg2m.png');
+    animation: moveBackground 40s linear infinite;
+}
+
+#bg3 {
+    background-image: url('images/bg3m.png');
+    animation: moveBackground 30s linear infinite;
+}
+
+#content {
+    border-radius: 3px;
+    border: 2px solid #cbdbfc;
+    background: #306082;
+    color: #cbdbfc;
+}
+
+#content td {
+    border: 2px solid #cbdbfc;
+    border-radius: 3px;
+}
+
+#content a {
+    color: #cbdbfc;
+}

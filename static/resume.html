@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ewheeler121's Personal Site</title>
+        <meta name="author" content="Ewheeler121">
+        <meta name="description" content="Ewheeler121 Personal Website">
+		
+        <meta name="keywords" content="">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preload" href="images/bg1m.png" as="image">
+        <link rel="preload" href="images/bg2m.png" as="image">
+        <link rel="preload" href="images/bd2m.png" as="image">
+        
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="background_m.css">
+    </head>
+    <div id="bg1" class="background"></div>
+    <div id="bg2" class="background"></div>
+    <div id="bg3" class="background"></div>
+    <body>
+        <div id="content">
+            <h1 style="text-align: center">Resume</h1>
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <h3 style="text-align:center">
+                        <a href="index.html">Home</a>
+                        <a href="construction.html">About</a>
+                        <a href="construction.html">Setup</a>
+                        <a href="construction.html">Blog</a>
+                        <a href="construction.html">Projects</a>
+                        <a href="construction.html">Credits</a>
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <iframe src="resume.pdf" width="100%" height="800px">
+                            Your Browser doesn't support PDFs, download it <a href="resume.pdf">here</a>
+                        </iframe>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center">
+                        <h4>Resume was created with groff, here is the <a href="resume.txt" download="resume.txt">file</a>. To process it, run</h4>
+                        <h2>groff -t -ms resume.txt -T pdf > resume.pdf && xdg-open resume.pdf</h2>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
