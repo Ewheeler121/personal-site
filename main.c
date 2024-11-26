@@ -8,12 +8,14 @@
 
 void static_files_handlers(SSL *ssl, char *request);
 void handle_hitcounter(SSL *ssl, char *request);
+void handle_comments(SSL *ssl, char *request);
 
 int hitcounter = 0;
 sqlite3 *database;
 
 handle_t handles[] = {
     {"^GET /hit-counter$", handle_hitcounter},
+    {"^GET /comments$", handle_comments},
     {NULL, static_files_handlers}
 };
 
@@ -62,6 +64,7 @@ void handle_hitcounter(SSL *ssl, char *request) {
     SSL_write(ssl, "\r\n\r\n", 4);
 }
 
+
 int comment_callback(void *data, int argc, char **argv, char **azColName) {
     size_t response_size = strlen(argv[1]) + strlen(argv[3]) + 13;
     if(argv[2] != NULL) {
@@ -73,12 +76,27 @@ int comment_callback(void *data, int argc, char **argv, char **azColName) {
     } else {
         sprintf(response, "<h4>%s: %s</h4>", argv[1], argv[3]);
     }
-    SSL_write((SSL *)data, response, strlen(response));
+    data = realloc(data, sizeof(data) + sizeof(response_size));
+    strncat(data, response, response_size);
     return 0;
 }
 
 void handle_comments(SSL *ssl, char *request) {
-    SSL_write(ssl, "<div class=\"comments\">", 22);
-    sqlite3_exec(database, "SELECT * FROM Comments", comment_callback, (void *)ssl, NULL);
-    SSL_write(ssl, "</div>", 6);
+    char buffer[25];
+    char *comment_body = malloc(29);
+    
+    strncpy(comment_body, "<div class=\"comments\">", 23);
+    sqlite3_exec(database, "SELECT * FROM (SELECT * FROM Comments ORDER BY id DESC LIMIT 50) sub ORDER BY id ASC", comment_callback, (void *)comment_body, NULL);
+    strncat(comment_body, "</div>", 7);
+    
+    snprintf(buffer, 20, "%ld", strlen(comment_body));
+    
+    SSL_write(ssl, "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: ", 58);
+    SSL_write(ssl, buffer, strlen(buffer));
+    SSL_write(ssl, "\r\n\r\n", 4);
+    SSL_write(ssl, comment_body, strlen(comment_body));
+    SSL_write(ssl, "\r\n\r\n", 4);
+
+    free(comment_body);
+    comment_body = NULL;
 }
